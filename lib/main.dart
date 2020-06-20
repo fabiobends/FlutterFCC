@@ -16,39 +16,38 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('My Awesome App')
       ),
-      body: Center(
-        child: Container(
-          padding: const EdgeInsets.all(10),
-          // color: Colors.red,
-          height: 100,
-          width: 100,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: Colors.red,
-            borderRadius: BorderRadius.circular(10),
-            gradient: LinearGradient(
-              colors: [
-                Colors.blue,
-                Colors.red
-              ]
-            ),
-            boxShadow:[ 
-              BoxShadow(
-                color: Colors.grey,
-                blurRadius: 10
-              )
-            ]
+      body: Container(
+        height: 100,
+        color: Colors.black87,
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.all(10),
+                // color: Colors.red,
+                height: 100,
+                width: 100,
+                alignment: Alignment.center,
+                color: Colors.green
+              ),Container(
+                padding: const EdgeInsets.all(10),
+                // color: Colors.red,
+                height: 100,
+                width: 100,
+                alignment: Alignment.center,
+                color: Colors.white
+              ),Container(
+                padding: const EdgeInsets.all(10),
+                // color: Colors.red,
+                height: 100,
+                width: 100,
+                alignment: Alignment.center,
+                color: Colors.red
+              ),
+            ],
           ),
-          child: Text("Hi flutter duh",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 20,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-          )
-        ),
-      )
+      ),
     );
   }
 }
