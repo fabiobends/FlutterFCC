@@ -8,18 +8,49 @@ void main() {
       )));
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+var myText = "Change my name";
+TextEditingController _nameController = TextEditingController();
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(title: Text('My Awesome App')),
       body: Center(
-        child: Container(
-          height: 100,
-          width: 100,
-          color: Colors.black87,
+          child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          child: Card(
+            child: Column(
+              children: <Widget>[
+                Image.asset("assets/chris-ried-ieic5Tq8YMk-unsplash.jpg"),
+                SizedBox(height: 20),
+                Text(myText,
+                    style:
+                        TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: TextField(
+                      controller: _nameController,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: "Enter a text",
+                          labelText: "Name")),
+                )
+              ],
+            ),
+          ),
         ),
-      ),
+      )),
       drawer: Drawer(
           child: ListView(
         padding: const EdgeInsets.all(0),
@@ -47,8 +78,11 @@ class HomePage extends StatelessWidget {
         ],
       )),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.edit),
+        onPressed: () {
+          myText = _nameController.text;
+          setState((){});
+        },
+        child: Icon(Icons.send),
       ),
     );
   }
